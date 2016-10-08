@@ -1,0 +1,43 @@
+html, body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    position: relative;
+    height: calc(100% - 75px);
+    width: 100%;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #EF584D;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFF;
+    color: #000;
+}​

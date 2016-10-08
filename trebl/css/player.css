@@ -1,0 +1,59 @@
+/*====================================================================================================================*/
+/*=============================================== Music Player Styles ================================================*/
+/*====================================================================================================================*/
+
+.player {
+    text-align: center;
+    width: calc(100% - 40px);
+    height: 100px;
+    background-color: #F2F2F2;
+    color: #000;
+    padding: 0 20px;
+}
+
+.player ul {
+    display: inline-block;
+    list-style-type: none;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+.player ul li {
+    display: inline-block;
+    float: left;
+    margin-right: 25px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.player ul li a, .player ul li span {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    height: 100px;
+    line-height: 100px;
+}
+
+#play_pause, #previous, #next {
+    display: inline-block;
+    float: left;
+    width: 26px;
+    height: 26px;
+    margin: 37px 10px 37px 0;
+}
+
+#play_pause {
+    width: 36px;
+    height: 36px;
+    margin: 32px 10px 32px 0;
+}
+
+.waveform {
+    display: inline-block;
+    float: left;
+    width: 400px;
+    height: 3px;
+    margin: 47px 30px 47px 20px;
+    background-color: #000;
+}
