@@ -1,50 +1,105 @@
 /*====================================================================================================================*/
 /*=============================================== Music Player Styles ================================================*/
 /*====================================================================================================================*/
-
-.player {
-    text-align: left;
-    width: calc(100% - 40px);
-    height: 100%;
-    background-color: #F2F2F2;
-    color: #000;
-    padding: 0 20px;
+.media_controls {
+    display: table-cell;
+    vertical-align: middle;
+    height: 80%;
+    width: 100%;
+    margin: 0;
+    padding: 0 2%;
+    text-align: center;
 }
 
-.player ul {
+#border_wrapper {
+    height: 45px;
+    border-right: 2px solid #C3C3C3;
+}
+
+.media_controls ul {
     display: inline-block;
     list-style-type: none;
-    height: 100px;
-    padding: 0;
+    height: 50px;
     margin: 0;
 }
 
-.player ul li {
+.media_controls ul li {
     display: inline-block;
     float: left;
-    margin-right: 25px;
-    height: 100px;
-    line-height: 100px;
+    height: 100%;
+    margin-right: 5px;
+    line-height: 50px;
+    color: #898989;
 }
 
-.player ul li a, .player ul li span {
+.media_controls ul li button, .media_controls ul li span {
     display: inline-block;
     float: left;
-    margin-right: 10px;
-    height: 100px;
-    line-height: 100px;
+    margin: 0 25px 0 0;
+    height: 100%;
+    border: none;
+    background: none;
+    background-size: contain;
+    cursor: pointer;
 }
 
-#play_pause, #previous, #next {
-    display: inline-block;
-    float: left;
+.media_controls ul li button:last-child {
+    margin-right: 0;
+}
+
+.media_controls ul li button:focus, .media_controls ul li button:hover {
+    outline: none;
+    cursor: pointer;
+}
+
+.previous, .next {
     width: 20px;
-    height: 20px;
-    margin: 37px 10px 37px 0;
 }
 
-#play_pause {
+.play, .pause {
     width: 40px;
-    height: 40px;
-    margin: 32px 10px 32px 0;
+}
+
+.play {
+    background: #EEEEEE url('/trebl/src/site/images/media_controls/trebl_play.svg') center no-repeat !important;
+}
+
+.pause {
+    background: #EEEEEE url('/trebl/src/site/images/media_controls/trebl_pause.svg') center no-repeat !important;
+}
+
+.previous {
+    background: #EEEEEE url('/trebl/src/site/images/media_controls/trebl_prev.svg') center no-repeat !important;
+}
+
+.next {
+    background: #EEEEEE url('/trebl/src/site/images/media_controls/trebl_next.svg') center no-repeat !important;
+}
+
+.volume {
+    width: 30px;
+    background: #EEEEEE url('/trebl/src/site/images/media_controls/trebl_volume.svg') center no-repeat !important;
+}
+
+#volume_bar {
+    padding: 19px 0;
+    width: 100px;
+    margin-right: 20px;
+}
+
+#volume_slider {
+    border-radius: 7px;
+    background-color: #898989;
+    height: 10px;
+}
+
+#timeline {
+    padding: 19px 0;
+    width: 450px;
+}
+
+#timeline_slider {
+    border-radius: 7px;
+    background-color: #898989;
+    height: 10px;
 }
