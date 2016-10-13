@@ -1,0 +1,116 @@
+/*====================================================================================================================*/
+/*=============================================== Music Player Styles ================================================*/
+/*====================================================================================================================*/
+.media_controls {
+    display: table-cell;
+    vertical-align: middle;
+    height: 80%;
+    width: 100%;
+    margin: 0;
+    padding: 0 2%;
+    text-align: center;
+}
+
+#border_wrapper {
+    height: 45px;
+    border-right: 2px solid #C3C3C3;
+}
+
+.media_controls ul {
+    display: inline-block;
+    list-style-type: none;
+    height: 50px;
+    margin: 0;
+}
+
+.media_controls ul li {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    margin-right: 5px;
+    line-height: 50px;
+    color: #898989;
+}
+
+.media_controls ul li button, .media_controls ul li span {
+    display: inline-block;
+    float: left;
+    margin: 0 25px 0 0;
+    height: 100%;
+    border: none;
+    background: none;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.media_controls ul li button:last-child {
+    margin-right: 0;
+}
+
+.media_controls ul li button:focus, .media_controls ul li button:hover {
+    outline: none;
+    cursor: pointer;
+}
+
+.previous, .next {
+    width: 20px;
+}
+
+.play, .pause {
+    width: 40px;
+}
+
+.play {
+    background: #EEEEEE url('../images/media_controls/trebl_play.svg') center no-repeat !important;
+}
+
+.pause {
+    background: #EEEEEE url('../images/media_controls/trebl_pause.svg') center no-repeat !important;
+}
+
+.previous {
+    background: #EEEEEE url('../images/media_controls/trebl_prev.svg') center no-repeat !important;
+}
+
+.next {
+    background: #EEEEEE url('../images/media_controls/trebl_next.svg') center no-repeat !important;
+}
+
+.volume {
+    width: 30px;
+    background: #EEEEEE url('../images/media_controls/trebl_volume.svg') center no-repeat !important;
+}
+
+#volume_bar {
+    padding: 19px 0;
+    width: 100px;
+    margin-right: 20px;
+}
+
+#volume_slider, #timeline_slider {
+    border-radius: 7px;
+    background-color: #898989;
+    height: 8px;
+}
+
+#timeline {
+    padding: 19px 0;
+    width: 450px;
+}
+
+.ui-widget-header {
+    background-color: #D32F2F !important;
+}
+
+.ui-slider-handle {
+    border-radius: 2000px !important;
+    background-color: #EF584D !important;
+    border: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 2px !important;
+}
+
+.ui-slider-handle:focus {
+    outline: none !important;
+}

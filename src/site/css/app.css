@@ -1,0 +1,293 @@
+/*====================================================================================================================*/
+/*=========================================== Application Interface Style ============================================*/
+/*====================================================================================================================*/
+
+/*============================================== Album Area Elements =================================================*/
+
+.music_info {
+    width: 100%;
+    height: 91.5%;
+}
+
+.curr_info {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 63%;
+    background-color: #5c5c5c;
+}
+
+#background_blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #1C94C4;
+
+}
+
+.curr_song_wrapper {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 150px);
+    height: calc(93% - 340px);
+    padding: 190px 85px 150px 65px;
+}
+
+.waveform {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 7%;
+    background: rgba(255, 21, 0, 1);
+    background: -moz-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 21, 0, 1)), color-stop(69%, rgba(255, 34, 0, 1)), color-stop(69%, rgba(137, 137, 137, 1)), color-stop(100%, rgba(137, 137, 137, 1)));
+    background: -webkit-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -o-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: linear-gradient(to right, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1500', endColorstr='#898989', GradientType=1);
+}
+
+.album_cover {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    max-height: 463px;
+    max-width: 463px;
+}
+
+#album_cover {
+    height: 100%;
+    width: auto;
+}
+
+.track_info {
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: calc(100% - 463px);
+    margin: 0;
+    padding-top: 80px;
+}
+
+.track_info > span {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#artist {
+    display: inline-block;
+    float: left;
+    padding: 5px 14px;
+    font-size: 34px;
+    margin: 0 0 23px 0;
+    background-color: #D32F2F;
+}
+
+#album_title {
+    background-color: #D32F2F;
+    font-size: 40px;
+    padding: 3px 15px;
+    margin: 0;
+}
+
+#song_tags {
+    display: inline-block;
+    float: right;
+    white-space: nowrap;
+}
+
+#song_tags a {
+    border-radius: 8px;
+    margin: 0 3% 10px 0;
+    background-color: #EF584D;
+    font-size: 24px;
+    padding: 5px 10px;
+}
+
+#song_tags a:last-child {
+    margin-right: 0;
+}
+
+.next_info {
+    position: relative;
+    width: 37%;
+    height: calc(100% - 80px);
+    padding: 40px 0;
+    display: inline-block;
+    float: left;
+    margin: 0;
+    background-color: #DDDDDD;
+}
+
+.up_next_header {
+    width: 100%;
+    height: 10%;
+}
+
+.up_next_header span {
+    display: inline-block;
+    background-color: #D32F2F;
+    font-size: 30px;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 8%;
+    padding-right: 5%;
+    margin-bottom: 40px;
+}
+
+.upcoming_tracks {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    padding: 0 5%;
+    margin: 0;
+    overflow: auto;
+}
+
+.track_list {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 22%;
+    background-color: #898989;
+    -webkit-box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.track_list:last-child {
+    margin-bottom: 0;
+}
+
+.track_list.next_track {
+    background-color: #EF5350;
+}
+
+.track_list_album {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: 100%;
+    background: #BDCCD4 url('../images/album_placeholder.png') no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.track_list_info {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 67%;
+    height: 95%;
+    margin: 0;
+    padding: 2.5% 4%;
+}
+
+#del_nt {
+    position: fixed;
+    right: 54px;
+    top: 225px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 2;
+}
+
+#del_nt:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+.nt_name, .nt_album, .nt_tags {
+    float: left;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.nt_name {
+    font-size: 26px;
+}
+
+.nt_album {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.nt_tags > a {
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-right: 3%;
+    background-color: #D32F2F;
+    padding: 5px 10px;
+    font-weight: 200;
+}
+
+.footer {
+    background-color: #fff;
+    height: 8.5%;
+    line-height: 10%;
+    width: 100%;
+}
+
+.fc_wrappers {
+    display: table;
+    float: left;
+    width: 49%;
+    height: 100%;
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0;
+}
+
+.fc_wrappers:last-child {
+    width: 51%;
+}
+
+.genre_search {
+    display: table-cell;
+    vertical-align: middle;
+    height: 75%;
+    width: 100%;
+    margin: 0;
+    padding: 0 1.5%;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+.genre_search span {
+    background-color: #EF584D;
+    padding: 5px 15px;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.genre_search input {
+    height: 30px;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: inherit;
+    min-width: 275px;
+    color: #000;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.genre_search input:focus {
+    outline: none;
+}
