@@ -7,8 +7,8 @@ class SoundcloudService:
 		self.client_id = client_id
 		self.client = soundcloud.Client(client_id=client_id)
 
-	def fetch_music(self, genres):
-		tracks = self.client.get('/tracks', genres=genres, favoritings_count=500000)
+	def fetch_music(self, genres, limit):
+		tracks = self.client.get('/tracks', genres = genres, limit = limit)
 		client_id_param = '?client_id=' + self.client_id
 		
 		tracks_json = []

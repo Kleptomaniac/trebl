@@ -15,7 +15,12 @@ class TreblService(webapp2.RequestHandler):
 		
 		if (function == 'fetch_music'):
 			genres = self.request.get('genres')
-			tracks = self.soundcloud.fetch_music(genres)
+			
+			limit = self.request.get('limit')
+			if limit == '':
+				limit = 10
+			
+			tracks = self.soundcloud.fetch_music(genres, limit)
 			
 			self.response.write(tracks)
 	
