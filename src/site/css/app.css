@@ -17,14 +17,21 @@
     float: left;
     height: 100%;
     width: 63%;
+    z-index: 1;
     background-color: #5c5c5c;
 }
 
 #background_blur {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #1C94C4;
+    background: #898989 url('../images/album_placeholder.png') no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    filter: blur(20px);
+    overflow: hidden;
 
 }
 
@@ -34,6 +41,7 @@
     width: calc(100% - 150px);
     height: calc(93% - 340px);
     padding: 190px 85px 150px 65px;
+    z-index: 3;
 }
 
 .waveform {
@@ -89,7 +97,7 @@
     background-color: #D32F2F;
 }
 
-#album_title {
+#song_title {
     background-color: #D32F2F;
     font-size: 40px;
     padding: 3px 15px;
@@ -177,7 +185,9 @@
     float: left;
     width: 25%;
     height: 100%;
-    background: #BDCCD4 url('../images/album_placeholder.png') no-repeat;
+    background-color: #DDDDDD;
+    background-image: url('../images/album_placeholder.png');
+    background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -194,9 +204,9 @@
 }
 
 #del_nt {
-    position: fixed;
-    right: 54px;
-    top: 225px;
+    position: absolute;
+    right: 46px;
+    top: 0;
     font-size: 24px;
     font-weight: 600;
     color: #fff;
@@ -208,17 +218,17 @@
     color: #000;
 }
 
-.nt_name, .nt_album, .nt_tags {
+.nt_artist, .nt_name, .nt_tags {
     float: left;
     width: 100%;
     margin-bottom: 2px;
 }
 
-.nt_name {
+.nt_artist {
     font-size: 26px;
 }
 
-.nt_album {
+.nt_name {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 15px;
@@ -262,8 +272,7 @@
     width: 100%;
     margin: 0;
     padding: 0 1.5%;
-    overflow: scroll;
-    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .genre_search span {

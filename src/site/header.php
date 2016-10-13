@@ -12,16 +12,19 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600" rel="stylesheet">
     <script src="../site/js/jquery-3.1.0.min.js"></script>
     <script src="../site/js/jquery-ui.min.js"></script>
+    <script src="js/app_functions.js"></script>
+    <script src="../site/js/trebl.js"></script>
+    <script src="../site/js/waveform.js"></script>
 </head>
 <body>
 <header>
     <div class="nav">
         <a class="logo"><span class="logo_t">t</span>rebl.</a>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Generator</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">About</a></li>
+            <li><a>Home</a></li>
+            <li><a id="generate">Generate</a></li>
+            <li><a>GitHub</a></li>
+            <li><a>About</a></li>
         </ul>
     </div>
 </header>

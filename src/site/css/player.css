@@ -52,33 +52,41 @@
     cursor: pointer;
 }
 
-.previous, .next {
+#previous, #next {
     width: 20px;
 }
 
-.play, .pause {
+#play, #pause {
     width: 40px;
 }
 
-.play {
+#play {
     background: #EEEEEE url('../images/media_controls/trebl_play.svg') center no-repeat !important;
 }
 
-.pause {
+#pause {
+    display: none;
     background: #EEEEEE url('../images/media_controls/trebl_pause.svg') center no-repeat !important;
 }
 
-.previous {
+#previous {
     background: #EEEEEE url('../images/media_controls/trebl_prev.svg') center no-repeat !important;
 }
 
-.next {
+#next {
     background: #EEEEEE url('../images/media_controls/trebl_next.svg') center no-repeat !important;
 }
 
-.volume {
+#volume {
     width: 30px;
     background: #EEEEEE url('../images/media_controls/trebl_volume.svg') center no-repeat !important;
+}
+
+#mute {
+    display: none;
+    margin-right: 25px;
+    width: 30px;
+    background: #EEEEEE url('../images/media_controls/trebl_mute.svg') center no-repeat !important;
 }
 
 #volume_bar {
@@ -113,4 +121,8 @@
 
 .ui-slider-handle:focus {
     outline: none !important;
+}
+
+#music_src {
+    display: none;
 }
