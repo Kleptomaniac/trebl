@@ -3,6 +3,13 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /
+  static_files: site/index.html
+  upload: site/index.html
+  
+- url: /site
+  static_dir: site
+
 - url: /.*
   script: main.app
   
