@@ -5,7 +5,6 @@
 /*============================================== Album Area Elements =================================================*/
 
 .music_info {
-    position: relative;
     width: 100%;
     height: 91.5%;
 }
@@ -21,12 +20,20 @@
     background-color: #5c5c5c;
 }
 
+#background_blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #1C94C4;
+
+}
+
 .curr_song_wrapper {
     display: inline-block;
     float: left;
-    width: calc(100% - 130px);
-    height: calc(93% - 380px);
-    padding: 190px 65px;
+    width: calc(100% - 150px);
+    height: calc(93% - 340px);
+    padding: 190px 85px 150px 65px;
 }
 
 .waveform {
@@ -34,157 +41,197 @@
     float: left;
     width: 100%;
     height: 7%;
-    background: rgba(255,21,0,1);
-    background: -moz-linear-gradient(left, rgba(255,21,0,1) 0%, rgba(255,34,0,1) 69%, rgba(137,137,137,1) 69%, rgba(137,137,137,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,21,0,1)), color-stop(69%, rgba(255,34,0,1)), color-stop(69%, rgba(137,137,137,1)), color-stop(100%, rgba(137,137,137,1)));
-    background: -webkit-linear-gradient(left, rgba(255,21,0,1) 0%, rgba(255,34,0,1) 69%, rgba(137,137,137,1) 69%, rgba(137,137,137,1) 100%);
-    background: -o-linear-gradient(left, rgba(255,21,0,1) 0%, rgba(255,34,0,1) 69%, rgba(137,137,137,1) 69%, rgba(137,137,137,1) 100%);
-    background: -ms-linear-gradient(left, rgba(255,21,0,1) 0%, rgba(255,34,0,1) 69%, rgba(137,137,137,1) 69%, rgba(137,137,137,1) 100%);
-    background: linear-gradient(to right, rgba(255,21,0,1) 0%, rgba(255,34,0,1) 69%, rgba(137,137,137,1) 69%, rgba(137,137,137,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff1500', endColorstr='#898989', GradientType=1 );
+    background: rgba(255, 21, 0, 1);
+    background: -moz-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 21, 0, 1)), color-stop(69%, rgba(255, 34, 0, 1)), color-stop(69%, rgba(137, 137, 137, 1)), color-stop(100%, rgba(137, 137, 137, 1)));
+    background: -webkit-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -o-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    background: linear-gradient(to right, rgba(255, 21, 0, 1) 0%, rgba(255, 34, 0, 1) 69%, rgba(137, 137, 137, 1) 69%, rgba(137, 137, 137, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1500', endColorstr='#898989', GradientType=1);
 }
 
 .album_cover {
     display: inline-block;
     float: left;
-    width: 50%;
-    max-height: 450px;
-    max-width: 450px;
+    height: 100%;
+    max-height: 463px;
+    max-width: 463px;
 }
 
 #album_cover {
-    width: 100%;
-    height: auto;
-    max-width: 450px;
-    max-height: 450px;
+    height: 100%;
+    width: auto;
 }
 
 .track_info {
     display: inline-block;
     float: left;
-    width: 48%;
-    height: calc(80% - 10px);
+    position: relative;
+    width: calc(100% - 463px);
     margin: 0;
-    padding-top: 10px;
+    padding-top: 80px;
 }
 
-.track_info h3, .track_info p, #song_tags a {
-    margin: 0 auto 35px 0;
-    color: #fff;
-    padding: 5px 10px;
-    background-color: #5B4645;
-    float: left;
-}
-
-.track_info h3 {
-    font-size: 36px;
-    line-height: 45px;
-    text-align: center;
-}
-
-.track_info p {
+.track_info > span {
     display: inline-block;
-    font-size: 24px;
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#artist {
+    display: inline-block;
+    float: left;
+    padding: 5px 14px;
+    font-size: 34px;
+    margin: 0 0 23px 0;
+    background-color: #D32F2F;
+}
+
+#album_title {
+    background-color: #D32F2F;
+    font-size: 40px;
+    padding: 3px 15px;
+    margin: 0;
 }
 
 #song_tags {
-    float: left;
-    margin: 0 auto 25px 0;
-    width: 100%;
+    display: inline-block;
+    float: right;
+    white-space: nowrap;
 }
 
 #song_tags a {
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 0 3% 10px 0;
+    background-color: #EF584D;
+    font-size: 24px;
+    padding: 5px 10px;
 }
 
-.player {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: calc(25% - 25px);
-    background-color: #919191;
-    margin: 25px auto 0 auto;
-}
-
-.media_buttons {
-    float: left;
-    height: calc(100% - 40px);
-    width: calc(25% - 40px);
-    min-width: 100px;
-    background-color: #000;
-    padding: 20px;
-}
-
-.media_buttons span {
-    float: left;
-    width: 25%;
-    margin-right: 5%;
-    height: 50%;
-    background-color: #fff;
-}
-
-.media_buttons span:last-child {
+#song_tags a:last-child {
     margin-right: 0;
 }
 
-#play_pause {
-    width: 40%;
-}
-
 .next_info {
-    display: inline-block;
-    float: left;
-    margin: 0;
-    padding: 25px;
     position: relative;
-    height: calc(100% - 50px);
-    width: calc(37% - 50px);
-    background-color: #6F5C5C;
-}
-
-.next_album {
-    width: 100%;
-    float: left;
-    margin: 0 auto 20px 0;
-}
-
-#next_album {
-    float: left;
-    width: 100%;
-    height: auto;
-    max-width: 250px;
-    max-height: 250px;
-}
-
-.next_info h3, .next_info h4, .next_info p{
-    margin: 0 auto 20px 0;
-    color: #fff;
-    padding: 5px 10px;
-    background-color: #5B4645;
-}
-
-.next_info h3 {
-    float: left;
-    font-size: 28px;
-    line-height: 38px;
-    text-align: center;
-}
-
-.next_song_info p {
+    width: 37%;
+    height: calc(100% - 80px);
+    padding: 40px 0;
     display: inline-block;
     float: left;
-    font-size: 18px;
     margin: 0;
-    padding: 10px;
-    width: 230px;
+    background-color: #DDDDDD;
 }
 
-.next_album_name {
+.up_next_header {
+    width: 100%;
+    height: 10%;
+}
+
+.up_next_header span {
+    display: inline-block;
+    background-color: #D32F2F;
+    font-size: 30px;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 8%;
+    padding-right: 5%;
+    margin-bottom: 40px;
+}
+
+.upcoming_tracks {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    padding: 0 5%;
+    margin: 0;
+    overflow: auto;
+}
+
+.track_list {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    height: 22%;
+    background-color: #898989;
+    -webkit-box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.track_list:last-child {
+    margin-bottom: 0;
+}
+
+.track_list.next_track {
+    background-color: #EF5350;
+}
+
+.track_list_album {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 25%;
+    height: 100%;
+    background: #BDCCD4 url('../images/album_placeholder.png') no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.track_list_info {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 67%;
+    height: 95%;
+    margin: 0;
+    padding: 2.5% 4%;
+}
+
+#del_nt {
+    position: fixed;
+    right: 54px;
+    top: 225px;
     font-size: 24px;
     font-weight: 600;
+    color: #fff;
+    z-index: 2;
+}
+
+#del_nt:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+.nt_name, .nt_album, .nt_tags {
+    float: left;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.nt_name {
+    font-size: 26px;
+}
+
+.nt_album {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.nt_tags > a {
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-right: 3%;
+    background-color: #D32F2F;
+    padding: 5px 10px;
+    font-weight: 200;
 }
 
 .footer {
@@ -194,27 +241,35 @@
     width: 100%;
 }
 
-.genre_search, .media_controls {
-    display: inline-block;
+.fc_wrappers {
+    display: table;
     float: left;
-    width: calc(50% - 20px);
-    height: calc(100% - 50px);
-    background-color: #fff;
-    margin: 25px 10px;
+    width: 49%;
+    height: 100%;
+    background-color: #EEEEEE;
+    margin: 0;
     padding: 0;
-    line-height: 48px;
 }
 
-.media_controls {
-    width: calc(50% - 21px);
-    border-right: 1px solid #818181;
-    color: #000;
+.fc_wrappers:last-child {
+    width: 51%;
+}
+
+.genre_search {
+    display: table-cell;
+    vertical-align: middle;
+    height: 75%;
+    width: 100%;
+    margin: 0;
+    padding: 0 1.5%;
+    overflow: scroll;
+    white-space: nowrap;
 }
 
 .genre_search span {
-    background-color: #C56763;
-    padding: 5px;
-    border-radius: 4px;
+    background-color: #EF584D;
+    padding: 5px 15px;
+    border-radius: 8px;
     margin-right: 10px;
     font-size: 24px;
     font-weight: 300;
@@ -222,9 +277,11 @@
 
 .genre_search input {
     height: 30px;
-    font-size: 16px;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
     background: inherit;
-    min-width: 225px;
+    min-width: 275px;
     color: #000;
     padding: 0;
     margin: 0;
