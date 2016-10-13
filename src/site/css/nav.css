@@ -7,7 +7,7 @@
 .logo {
     display: inline-block;
     font-size: 36px;
-    line-height: 75px;
+    line-height: 80px;
     margin: 0;
     padding: 10px 25px;
     text-align: center;
@@ -15,13 +15,13 @@
 
 .logo:hover {
     background-color: #ECF0F1;
-    color: #EF584D;
+    color: #000;
     cursor: pointer;
-    transition: all 0.5s linear;
+    transition: all 0.3s linear;
 }
 
 .logo_t {
-    color: #F39C12 !important;
+    color: #000 !important;
 }
 
 /*============================================== Bar and Nav Elements ================================================*/

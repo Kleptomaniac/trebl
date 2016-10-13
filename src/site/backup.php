@@ -85,7 +85,9 @@
         function appendHash(identifier) {
             $(identifier).each(function () {
                 var tag = $(this).text()
-                $(this).text("#" + tag);
+                if(tag[0] != '#') {
+                    $(this).text("#" + tag);
+                }
             });
         }
         $(document).ready(function () {
