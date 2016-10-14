@@ -1,6 +1,13 @@
-var track_list;
 var prev;
 var playlistname;
+
+function closePopup() {
+    $("#playlistname").val("");
+    $("#genressearch").val("");
+    $("#popup").css("display", "none");
+    $("#black_overlay").css("display", "none");
+    $("#close_popup").css("display", "none");
+}
 
 
 function onTrackedVideoFrame(currentTime) {
@@ -22,25 +29,28 @@ function tracklistInit() {
 }
 
 function updateTrackList(tags, plname, limit) {
+    limit = (limit == 1 || limit == 5) ? limit : 4;
     playlistname = plname;
     $.ajax({
         url: 'https://treblradio.appspot.com/api',
-        data: {function: 'fetch_music', genres: tags, limit: limit, playlist: plname},
+        data: {function: 'fetch_music', tags: tags, limit: limit, playlist: plname},
         success: function (output) {
             var tracks = JSON.parse(output);
+            console.log(output);
             for (var i = 0; i < tracks.length; i++) {
                 var retid = tracks[i].id;
-                var genres = tracks[i].genres.split("/");
+                var tags = tracks[i].tags;
                 if(limit == 5) {
                     $("#music_src").prop('src', tracks[i].stream_url);
                     $("#music_src").get(0).load();
+                    $("#album_cover").prop('src', tracks[i].artwork_url);
                     $("#artist").parent().attr('retid', retid);
                     $("#artist").parent().attr('stream_url', tracks[i].stream_url);
                     $("#artist").text(tracks[i].artist);
                     $("#song_title").text(tracks[i].title);
                     $("#song_tags").empty();
-                    for(var j = 0; j < genres.length; j++) {
-                        $("#song_tags").append("<a>" + genres[i] + "</a>")
+                    for(var j = 0; j < tags.length; j++) {
+                        $("#song_tags").append("<a>" + tags[i] + "</a>")
                     }
                     continue;
                 }
@@ -60,11 +70,14 @@ function updateTrackList(tags, plname, limit) {
                 $("#" + retid).append(new_elem);
 
                 $("#" + retid + "div[class='track_list_album']").css("background-image", "url: ('" + tracks[i].artwork_url + "')");
-                for (j = 0; j < genres.length; j++) {
-                    var tagadd = "<a>" + genres[i].toLowerCase() + "</a>";
+                for (j = 0; j < tags.length; j++) {
+                    var tagadd = "<a>" + tags[i].toLowerCase() + "</a>";
                     $("#" + retid + "div[class='nt_tags']").append(tagadd);
                 }
                 $("#" + retid).attr("stream_url", tracks[i].stream_url);
+                appendHash("#song_tags a");
+                appendHash(".nt_tags a");4
+                $("#song_tags").append("<a>...</a>");
             }
         }
     });

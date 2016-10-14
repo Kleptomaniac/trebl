@@ -6,7 +6,7 @@
                 <div id="background_blur"></div>
                 <div class="curr_song_wrapper">
                     <div class="album_cover">
-                        <img id="album_cover" src="images/album_placeholder.png" alt="album_cover">
+                        <img id="album_cover" src="../site/images/album_placeholder.png" alt="album_cover">
                     </div>
                     <div class="track_info">
                         <h3 id="artist"></h3>
@@ -15,7 +15,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="waveform"></div>
             </div>
             <div class="next_info">
                 <div class="up_next_header">
@@ -68,7 +67,7 @@
             </div>
             <div class="fc_wrappers">
                 <div class="genre_search">
-                    <input type="text" placeholder="Search your favourite #genres" id="new_search_tag"/>
+                    <input type="text" placeholder="Search your favourite #tags" id="new_search_tag"/>
                 </div>
             </div>
         </div>

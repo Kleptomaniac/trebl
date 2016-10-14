@@ -39,7 +39,7 @@
     display: inline-block;
     float: left;
     width: calc(100% - 150px);
-    height: calc(93% - 340px);
+    height: calc(100% - 340px);
     padding: 190px 85px 150px 65px;
     z-index: 3;
 }
