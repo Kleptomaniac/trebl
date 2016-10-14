@@ -51,7 +51,7 @@ class SoundcloudService:
 		playlist = []
 		playlist_query = TreblPlaylistItem.gql('WHERE playlist_name = :1', 
 			playlist_name)
-		playlist_item_ids = [playlist.track_id for playlist in playlist_query]
+		playlist_item_ids = [playlist_item.track_id for playlist_item in playlist_query]
 		
 		for track in tracks:
 			if len(playlist) == limit:
