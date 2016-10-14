@@ -1,8 +1,8 @@
 $(document).ready(function () {
     appendHash("#song_tags a");
-    appendHash(".genre_search span");
     appendHash(".nt_tags a");
-    //tracklistInit();
+    appendHash(".genre_search span");
+    tracklistInit();
 });
 
 function appendHash(identifier) {
@@ -17,11 +17,12 @@ function appendHash(identifier) {
 $(document).on('keyup', '#new_search_tag', function (ev) {
     if (ev.which == 13) {
         var val = $(this).val();
-        var element = "<span>#" + val + "</span>";
+        var element = "<span>" + val + "</span>";
         var holder = $(this).detach();
         $(".genre_search").append(element);
         $(".genre_search").append(holder);
         $(this).val("");
+        appendHash(".genre_search span");
         tagsUpdated();
     }
 });
@@ -96,17 +97,14 @@ $(document).on('click', '#popup_button', function () {
     } else {
         var plname = $("#playlistname").val();
         var tags = $("#genressearch").val();
-        tags = tags.replace(/\s+/g, "");
-        updateTrackList(tags, plname, true);
+        tags = tags.replace(/, /g, ",");
+        console.log("Tags: " + tags + " | plname: " + plname);
+        updateTrackList(tags, plname, 5);
     }
 });
 
 $(document).on('click', '#close_popup', function () {
-    $("#playlistname").val("");
-    $("#genressearch").val("");
-    $("#popup").css("display", "none");
-    $("#black_overlay").css("display", "none");
-    $("#close_popup").css("display", "none");
+    closePopup();
 });
 
 $(document).on('click', '#generate', function () {
@@ -143,11 +141,4 @@ $(document).on('click', '#mute', function () {
     $(this).css("display", "none");
     $("#volume").css("display", "inline-block");
     $("#music_src").prop('muted', false);
-});
-
-$(document).ready(function () {
-    var waveform = new Waveform({
-        container: document.getElementById("test"),
-        data: [1, 0.2, 0.5]
-    });
 });

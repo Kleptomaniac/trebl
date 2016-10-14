@@ -1,6 +1,13 @@
-var track_list;
 var prev;
 var playlistname;
+
+function closePopup() {
+    $("#playlistname").val("");
+    $("#genressearch").val("");
+    $("#popup").css("display", "none");
+    $("#black_overlay").css("display", "none");
+    $("#close_popup").css("display", "none");
+}
 
 
 function onTrackedVideoFrame(currentTime) {
@@ -22,18 +29,22 @@ function tracklistInit() {
 }
 
 function updateTrackList(tags, plname, limit) {
+    limit = (limit == 1 || limit == 5) ? limit : 4;
     playlistname = plname;
     $.ajax({
         url: 'https://treblradio.appspot.com/api',
         data: {function: 'fetch_music', genres: tags, limit: limit, playlist: plname},
         success: function (output) {
             var tracks = JSON.parse(output);
+            console.log(output);
             for (var i = 0; i < tracks.length; i++) {
                 var retid = tracks[i].id;
-                var genres = tracks[i].genres.split("/");
+                var temp = tracks[i].genre;
+                var genres = temp.split("/");
                 if(limit == 5) {
                     $("#music_src").prop('src', tracks[i].stream_url);
                     $("#music_src").get(0).load();
+                    $("#album_cover").prop('src', tracks[i].artwork_url);
                     $("#artist").parent().attr('retid', retid);
                     $("#artist").parent().attr('stream_url', tracks[i].stream_url);
                     $("#artist").text(tracks[i].artist);
@@ -65,6 +76,8 @@ function updateTrackList(tags, plname, limit) {
                     $("#" + retid + "div[class='nt_tags']").append(tagadd);
                 }
                 $("#" + retid).attr("stream_url", tracks[i].stream_url);
+                appendHash("#song_tags a");
+                appendHash(".nt_tags a");
             }
         }
     });
