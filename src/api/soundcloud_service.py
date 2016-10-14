@@ -29,6 +29,7 @@ class SoundcloudService:
 			tags = []
 			if track.tag_list is not None:
 				tags = re.findall(r'([^\s\"\\]+)', track.tag_list)
+				tags = tags[:5]
 			
 			track_data = SoundcloudTrack(
 				id = track.id,
