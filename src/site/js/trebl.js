@@ -23,7 +23,7 @@ $(document).on('keyup', '#new_search_tag', function (ev) {
 
 $(document).on('click', '#del_nt', function () {
     $("#next_track").attr('del', 'true');
-    $("#next_track").next().addClass("next_track");
+    $("#next_track").next().attr('id', "next_track");
     $("#next_track[del='true']").remove();
     if ($("#next_track").length > 0) {
         $("#del_nt").hide();
@@ -77,21 +77,24 @@ $(document).ready(function () {
 
 $(document).on('click', '#popup_button', function () {
     console.log("triggered");
-    if ($("#playlistname").val() == "") {
-        $("#playlistname").attr('placeholder', "Enter Name");
-        setTimeout(function () {
-            $("#playlistname").attr('placeholder', "Best Beats");
-        }, 2500);
-    } else if ($("#genressearch").val() == "") {
+    if ($("#genressearch").val() == "") {
         $("#genressearch").attr('placeholder', "Enter Genres");
         setTimeout(function () {
             $("#genressearch").attr('placeholder', "techno,pop,rnb");
         }, 2500);
     } else {
-        var plname = $("#playlistname").val();
+        var plname = "";
+        if($("#playlistname").val() != "") {
+            plname = $("#playlistname").val();
+        }
         var tags = $("#genressearch").val();
         tags = tags.replace(/, /g, ",");
+        var search = tags.split(",");
+        for(var k = 0; k < search.length; k++) {
+            $(".genre_search").prepend("<span>" + search[k] + "</span>");
+        }
         console.log("Tags: " + tags + " | plname: " + plname);
+        appendHash(".genre_search span");
         closePopup();
         updateTrackList(tags, plname, 5);
     }

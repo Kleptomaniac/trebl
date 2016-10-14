@@ -1,6 +1,9 @@
 var prev;
 var playlistname;
 
+var tracklist = [];
+var index = 0;
+
 
 function appendHash(identifier) {
     $(identifier).each(function () {
@@ -50,12 +53,13 @@ function updateTrackList(tags, plname, limit) {
             var tracks = JSON.parse(output);
             console.log(output);
             for (var i = 0; i < tracks.length; i++) {
+                tracklist.push(tracks[i].stream_url);
                 var retid = tracks[i].id;
                 var tags = tracks[i].tags;
                 if (limit == 5 && i == 0) {
                     $("#music_src").prop('src', tracks[i].stream_url);
                     $("#music_src").get(0).load();
-                    $("#album_cover").prop('src', tracks[i].artwork_url);
+                    $("#album_cover").attr('src', tracks[i].artwork_url);
                     $("#background_blur").css('background-image', 'url(' + tracks[i].artwork_url + ')');
                     $("#artist").parent().attr('retid', retid);
                     $("#artist").parent().attr('stream_url', tracks[i].stream_url);
@@ -67,15 +71,15 @@ function updateTrackList(tags, plname, limit) {
                     }
                     continue;
                 }
-                console.log("gotten past curr");
-                var topdiv = "<div class='track_list id='next_track'></div>";
+                var topdiv = "<div class='track_list' id='next_track'></div>";
                 if ((i == 0 && limit == 4) || (limit == 5 && i == 1)) {
-                    console.log("doing nexttrack");
-                    topdiv = "<div class='track_list id='next_track' retid='" + retid + "></div>";
+                    console.log("doing next track");
+                    topdiv = "<div class='track_list' id='next_track' retid='" + retid + "'></div>";
                     console.log(topdiv);
                 } else {
                     console.log("doing normtracks");
-                    topdiv = "<div class='track_list' retid='" + retid + "'></div>";console.log(topdiv);
+                    topdiv = "<div class='track_list' retid='" + retid + "'></div>";
+                    console.log(topdiv);
                     console.log(topdiv);
                 }
 
@@ -90,19 +94,19 @@ function updateTrackList(tags, plname, limit) {
                     "<span class='nt_name'>" + tracks[i].title + "</span>" +
                     "<div class='nt_tags'></div>";
 
-                $("#" + retid).append(new_elem);
+                $("div[retid='" + retid + "']").append(new_elem);
                 console.log("appended new track info");
 
-                $(".track_list[retid='" + retid + "'] div[class='track_list_album']").css('background-image', 'url(' + tracks[i].artwork_url + ')');
+                $("div[retid='" + retid + "'] div[class='track_list_album']").css('background-image', 'url(' + tracks[i].artwork_url + ')');
                 for (j = 0; j < tags.length; j++) {
                     var tagadd = "<a>" + tags[j].toLowerCase() + "</a>";
-                    $("#" + retid + "div[class='nt_tags']").append(tagadd);
+                    $("div[retid='" + retid + "'] div[class='nt_tags']").append(tagadd);
                 }
-                $("#" + retid).attr("stream_url", tracks[i].stream_url);
-                appendHash("#song_tags a");
-                appendHash(".nt_tags a");
-                $("#song_tags").append("<a>...</a>");
+                $("div[retid='" + retid + "']").attr("stream_url", tracks[i].stream_url);
             }
+            appendHash("#song_tags a");
+            appendHash(".nt_tags a");
+            $("#song_tags").append("<a>...</a>");
         }
     });
 }
@@ -120,23 +124,30 @@ function tagsUpdated() {
     }, 2000)
 }
 
+//swagpoints
 function nextTrack() {
     prev = $(".curr_song_wrapper").clone();
-    var cover = $("#next_track div[class='track_list_album']").attr('background-image');
+    var bg = $("#next_track div[class='track_list_album']").css('background-image');
+    bg.sub(23, bg.length - 3);
+    console.log(bg);
     $("#music_src").get(0).pause();
-    $("#album_cover").prop('src', cover);
-    $("#background_blur").attr('background-image', cover);
-    $("#artist").text($("#next_track div span[class='nt_artist']").text());
-    $("#song_title").text($("#next_track div span[class='nt_name']").text());
+    $("#album_cover").attr('src', bg);
+    $("#background_blur").attr('background-image', "url('" + bg + "')");
+    $("#artist").text($("#next_track div[class='track_list_info'] span[class='nt_artist']").text());
+    $("#song_title").text($("#next_track div[class='track_list_info'] span[class='nt_name']").text());
     $("#song_tags").empty();
-    $("#next_track div div[class='nt_tags'] a").each(function () {
+    $("#next_track div[class='track_list_info'] div[class='nt_tags'] a").each(function () {
         var tag = $(this).text();
         console.log(tag);
         var newatag = "<a>" + tag + "</a>";
         $("#song_tags").append(newatag);
     });
-    var src = $("#next_track").attr("stream_url");
+    var src2 = tracklist[index];
+    var src = $("#next_track").attr('stream_url');
+    console.log("Next URL: " + src);
     $("#music_src").prop('src', src);
+    //$("#music_src").prop('src',src2);
+    //index++;
     $("#music_src").get(0).load();
     $("#play").click();
     $("#del_nt").click();
