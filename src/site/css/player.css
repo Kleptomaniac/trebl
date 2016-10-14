@@ -2,25 +2,21 @@
 /*=============================================== Music Player Styles ================================================*/
 /*====================================================================================================================*/
 .media_controls {
-    display: table-cell;
-    vertical-align: middle;
-    height: 80%;
+    height: 100%;
     width: 100%;
+    border-right: 2px solid #C3C3C3;
     margin: 0;
-    padding: 0 2%;
+    padding: 0;
     text-align: center;
 }
 
-#border_wrapper {
-    height: 45px;
-    border-right: 2px solid #C3C3C3;
-}
-
 .media_controls ul {
+    position: relative;
     display: inline-block;
     list-style-type: none;
-    height: 50px;
+    height: 100%;
     margin: 0;
+    padding: 0;
 }
 
 .media_controls ul li {

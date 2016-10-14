@@ -40,30 +40,30 @@
         <div class="footer">
             <div class="fc_wrappers">
                 <div class="media_controls">
-                    <div id="border_wrapper">
-                        <ul>
-                            <li class="player_buttons">
-                                <button id="previous"></button>
-                                <button id="play"></button>
-                                <button id="pause"></button>
-                                <button id="next"></button>
-                                <button id="volume"></button>
-                                <button id="mute"></button>
-                            </li>
-                            <li>
-                                <div id="volume_bar">
-                                    <div id="volume_slider"></div>
-                                </div>
-                            </li>
-                            <li><span id="player_time">--:--</span></li>
-                            <li>
-                                <div id="timeline">
-                                    <div id="timeline_slider"></div>
-                                    <video id="music_src" src=""></video>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li class="player_buttons">
+                            <button id="previous"></button>
+                            <button id="play"></button>
+                            <button id="pause"></button>
+                            <button id="next"></button>
+                            <button id="volume"></button>
+                            <button id="mute"></button>
+                        </li>
+                        <li>
+                            <div id="volume_bar">
+                                <div id="volume_slider"></div>
+                            </div>
+                        </li>
+                        <li><span id="player_time">--:--</span></li>
+                        <li>
+                            <div id="timeline">
+                                <div id="timeline_slider"></div>
+                                <video id="music_src"
+                                       src="">
+                                </video>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="fc_wrappers">

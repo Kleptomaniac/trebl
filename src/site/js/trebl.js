@@ -2,7 +2,7 @@ $(document).ready(function () {
     appendHash("#song_tags a");
     appendHash(".genre_search span");
     appendHash(".nt_tags a");
-    tracklistInit();
+    //tracklistInit();
 });
 
 function appendHash(identifier) {
@@ -76,11 +76,9 @@ $(function () {
 });
 
 $(document).ready(function () {
-    $("#music_src").on(
-        "timeupdate",
-        function (event) {
-            onTrackedVideoFrame(this.currentTime, this.duration);
-        });
+    $("#music_src").on('timeupdate', function () {
+        onTrackedVideoFrame(this.currentTime);
+    });
 });
 
 $(document).on('click', '#popup_button', function () {
