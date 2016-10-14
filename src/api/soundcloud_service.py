@@ -39,19 +39,19 @@ class SoundcloudService:
 		return tracks
 		
 	def fetch_tracks(self, playlist_name, genres, limit):
-		playlist = []
-	
 		separated_genres = genres.split(',')
-		track_query = SoundcloudTrack.gql('WHERE genre IN :1', 
-			separated_genres)
+		tracks = list(SoundcloudTrack.gql('WHERE genre IN :1', 
+			separated_genres))
+		if not tracks:
+			tracks = self.fetch_music(genres, limit)
 		
+		if playlist_name == '':
+			return json.dumps(tracks)
+		
+		playlist = []
 		playlist_query = TreblPlaylistItem.gql('WHERE playlist_name = :1', 
 			playlist_name)
 		playlist_item_ids = [playlist.track_id for playlist in playlist_query]
-		
-		tracks = list(track_query)
-		if not tracks:
-			tracks = self.fetch_music(genres, limit)
 		
 		for track in tracks:
 			if len(playlist) == limit:
