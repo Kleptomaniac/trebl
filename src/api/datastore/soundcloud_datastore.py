@@ -4,7 +4,7 @@ class SoundcloudTrack(ndb.Model):
 	id = ndb.IntegerProperty()
 	title = ndb.StringProperty()
 	artist = ndb.StringProperty()
-	genre = ndb.StringProperty()
+	tags = ndb.StringProperty(repeated = True)
 	duration = ndb.IntegerProperty()
 	artwork_url = ndb.StringProperty()
 	soundcloud_url = ndb.StringProperty()
