@@ -16,7 +16,7 @@ class SoundcloudService:
 		tracks = []
 	
 		track_request = self.client.get('/tracks', tags = tags, 
-			limit = limit)
+			limit = 100)
 		client_id_param = '?client_id=' + self.client_id
 		
 		for track in track_request:
@@ -44,13 +44,15 @@ class SoundcloudService:
 			
 			tracks.append(track_data)
 		
-		return tracks
+		return tracks[:limit]
 		
 	def fetch_tracks(self, playlist_name, tags, limit):
+		limit = int(limit)
+	
 		separated_tags = tags.split(',')
 		tracks = list(SoundcloudTrack.gql('WHERE tags IN :1', 
 			separated_tags))
-		tracks =[]
+		tracks = []
 		if not tracks:
 			tracks = self.fetch_music(tags, limit)
 		
