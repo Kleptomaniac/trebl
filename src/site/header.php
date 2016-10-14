@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600" rel="stylesheet">
     <script src="../site/js/jquery-3.1.0.min.js"></script>
     <script src="../site/js/jquery-ui.min.js"></script>
-    <script src="js/app_functions.js"></script>
+    <script src="../site/js/app_functions.js"></script>
     <script src="../site/js/trebl.js"></script>
     <script src="../site/js/waveform.js"></script>
 </head>

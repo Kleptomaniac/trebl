@@ -25,7 +25,7 @@ function updateTrackList(tags, plname, limit) {
     playlistname = plname;
     $.ajax({
         url: 'https://treblradio.appspot.com/api',
-        data: {function: 'fetch_music', genres: tags, limit: limit, playlist_name: plname},
+        data: {function: 'fetch_music', genres: tags, limit: limit, playlist: plname},
         success: function (output) {
             var tracks = JSON.parse(output);
             for (var i = 0; i < tracks.length; i++) {
