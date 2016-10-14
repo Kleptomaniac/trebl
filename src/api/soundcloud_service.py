@@ -1,3 +1,5 @@
+import re
+
 import lib.soundcloud as soundcloud
 import json
 
@@ -10,24 +12,30 @@ class SoundcloudService:
 		self.client_id = client_id
 		self.client = soundcloud.Client(client_id = client_id)
 
-	def fetch_music(self, genres, limit):
+	def fetch_music(self, tags, limit):
 		tracks = []
 	
-		track_request = self.client.get('/tracks', genres = genres, 
-			limit = 100)
+		track_request = self.client.get('/tracks', tags = tags, 
+			limit = limit)
 		client_id_param = '?client_id=' + self.client_id
 		
 		for track in track_request:
 			artwork_url = track.artwork_url
 			if artwork_url is not None:
 				artwork_url = artwork_url.replace('large', 't500x500')
+			
 			stream_url = track.stream_url + client_id_param
-		
+			
+			tags = []
+			if track.tag_list is not None:
+				tags = re.findall(r'([^\s\"\\]+)', track.tag_list)
+				tags = tags[:5]
+			
 			track_data = SoundcloudTrack(
 				id = track.id,
 				title = track.title,
 				artist = track.user['username'],
-				genre = track.genre,
+				tags = tags,
 				duration = track.duration,
 				artwork_url = artwork_url,
 				soundcloud_url = track.permalink_url,
@@ -38,15 +46,16 @@ class SoundcloudService:
 		
 		return tracks
 		
-	def fetch_tracks(self, playlist_name, genres, limit):
-		separated_genres = genres.split(',')
-		tracks = list(SoundcloudTrack.gql('WHERE genre IN :1', 
-			separated_genres))
+	def fetch_tracks(self, playlist_name, tags, limit):
+		separated_tags = tags.split(',')
+		tracks = list(SoundcloudTrack.gql('WHERE tags IN :1', 
+			separated_tags))
+		tracks =[]
 		if not tracks:
-			tracks = self.fetch_music(genres, limit)
+			tracks = self.fetch_music(tags, limit)
 		
 		if playlist_name == '':
-			return json.dumps(tracks)
+			return json.dumps([track.to_dict() for track in tracks])
 		
 		playlist = []
 		playlist_query = TreblPlaylistItem.gql('WHERE playlist_name = :1', 
