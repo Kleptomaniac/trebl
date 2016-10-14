@@ -149,7 +149,7 @@
     margin-bottom: 40px;
 }
 
-.upcoming_tracks {
+#upcoming_tracks {
     position: relative;
     width: 90%;
     height: 90%;
@@ -175,7 +175,7 @@
     margin-bottom: 0;
 }
 
-.track_list.next_track {
+#next_track {
     background-color: #EF5350;
 }
 

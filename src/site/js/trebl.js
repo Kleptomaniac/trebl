@@ -3,16 +3,10 @@ $(document).ready(function () {
     appendHash(".nt_tags a");
     appendHash(".genre_search span");
     tracklistInit();
+    if ($("#next_track").length == 0) {
+        $("#del_nt").hide();
+    }
 });
-
-function appendHash(identifier) {
-    $(identifier).each(function () {
-        var tag = $(this).text()
-        if (tag[0] != '#') {
-            $(this).text("#" + tag);
-        }
-    });
-}
 
 $(document).on('keyup', '#new_search_tag', function (ev) {
     if (ev.which == 13) {
@@ -28,12 +22,11 @@ $(document).on('keyup', '#new_search_tag', function (ev) {
 });
 
 $(document).on('click', '#del_nt', function () {
-    $(this).hide();
-    $(".next_track").attr('del', 'true');
-    $(".next_track").next().addClass("next_track");
-    $(".next_track[del='true']").remove();
-    if ($(".next_track").length > 0) {
-        $(this).show();
+    $("#next_track").attr('del', 'true');
+    $("#next_track").next().addClass("next_track");
+    $("#next_track[del='true']").remove();
+    if ($("#next_track").length > 0) {
+        $("#del_nt").hide();
     }
 });
 
@@ -99,6 +92,7 @@ $(document).on('click', '#popup_button', function () {
         var tags = $("#genressearch").val();
         tags = tags.replace(/, /g, ",");
         console.log("Tags: " + tags + " | plname: " + plname);
+        closePopup();
         updateTrackList(tags, plname, 5);
     }
 });
