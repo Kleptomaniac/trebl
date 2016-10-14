@@ -20,18 +20,7 @@
     <favorites_list name="trebl" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app_functions.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/app_functions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,11 +47,11 @@
         <option value="$PROJECT_DIR$/js/ajax_queries.js" />
         <option value="$PROJECT_DIR$/js/waveform.js" />
         <option value="$PROJECT_DIR$/css/universal_styles.css" />
-        <option value="$PROJECT_DIR$/css/app.css" />
         <option value="$PROJECT_DIR$/css/player.css" />
         <option value="$PROJECT_DIR$/header.php" />
-        <option value="$PROJECT_DIR$/backup.php" />
         <option value="$PROJECT_DIR$/js/app_functions.js" />
+        <option value="$PROJECT_DIR$/backup.php" />
+        <option value="$PROJECT_DIR$/css/app.css" />
         <option value="$PROJECT_DIR$/js/trebl.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
@@ -106,8 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -140,8 +127,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -233,17 +236,18 @@
       <workItem from="1476405512179" duration="3672000" />
       <workItem from="1476413030949" duration="183000" />
       <workItem from="1476413230871" duration="2594000" />
+      <workItem from="1476419804931" duration="829000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107026000" />
+    <option name="totallyTimeSpent" value="107855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -279,13 +283,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/player.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4048">
@@ -557,13 +554,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/waveform.js" />
-    <entry file="file://$PROJECT_DIR$/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="256" column="24" selection-start-line="256" selection-start-column="24" selection-end-line="256" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/player.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1232">
@@ -579,18 +569,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/trebl.js">
+    <entry file="file://$PROJECT_DIR$/js/jquery-3.1.0.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="101" column="39" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="198">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/trebl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="120" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="143" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -598,15 +612,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="852">
-          <caret line="126" column="6" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+          <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
           <folding />
         </state>
       </provider>
