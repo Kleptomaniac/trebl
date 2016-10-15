@@ -1,10 +1,6 @@
 var prev;
 var playlistname;
 
-var tracklist = [];
-var index = 0;
-
-
 function appendHash(identifier) {
     $(identifier).each(function () {
         var tag = $(this).text()
@@ -23,12 +19,15 @@ function closePopup() {
 }
 
 
-function onTrackedVideoFrame(currentTime) {
+function onTrackedVideoFrame(currentTime, duration) {
     var time = parseInt(currentTime);
     var minutes = Math.floor(time / 60);
     var seconds = time - minutes * 60;
     var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
     $("#player_time").text(finalTime);
+    if(currentTime == duration) {
+        $("#next").click();
+    }
 }
 
 function str_pad_left(string, pad, length) {
@@ -53,7 +52,6 @@ function updateTrackList(tags, plname, limit) {
             var tracks = JSON.parse(output);
             console.log(output);
             for (var i = 0; i < tracks.length; i++) {
-                tracklist.push(tracks[i].stream_url);
                 var retid = tracks[i].id;
                 var tags = tracks[i].tags;
                 if (limit == 5 && i == 0) {
@@ -107,18 +105,19 @@ function updateTrackList(tags, plname, limit) {
             appendHash("#song_tags a");
             appendHash(".nt_tags a");
             $("#song_tags").append("<a>...</a>");
+            $("#play").click();
         }
     });
 }
 
 function tagsUpdated() {
     var tags = [];
-    $(".genre_search span").each(function () {
+    $(".genre_search a").each(function () {
         tags.push($(this).text().substring(1));
     });
-    var count = $(".genre_search span").length;
+    var count = $(".genre_search a").length;
     setTimeout(function () {
-        if (count == $(".genre_search span").length) {
+        if (count == $(".genre_search a").length) {
             updateTrackList(tags.toString(), playlistname, 1);
         }
     }, 2000)
@@ -128,7 +127,7 @@ function tagsUpdated() {
 function nextTrack() {
     prev = $(".curr_song_wrapper").clone();
     var bg = $("#next_track div[class='track_list_album']").css('background-image');
-    bg.sub(23, bg.length - 3);
+    bg.substr(5, (bg.length - 3));
     console.log(bg);
     $("#music_src").get(0).pause();
     $("#album_cover").attr('src', bg);
@@ -142,12 +141,9 @@ function nextTrack() {
         var newatag = "<a>" + tag + "</a>";
         $("#song_tags").append(newatag);
     });
-    var src2 = tracklist[index];
     var src = $("#next_track").attr('stream_url');
     console.log("Next URL: " + src);
     $("#music_src").prop('src', src);
-    //$("#music_src").prop('src',src2);
-    //index++;
     $("#music_src").get(0).load();
     $("#play").click();
     $("#del_nt").click();
@@ -158,8 +154,13 @@ function prevTrack() {
     console.log("clicked");
     if (prev != null) {
         var holder = $(".curr_song_wrapper").clone();
+        var stream_url = prev.children("div[class='track_info']").attr('stream_url');
+        console.log(stream_url);
         $(".curr_song_wrapper").remove();
         $(".curr_info").prepend(prev);
+        $("#music_src").pause();
+        $("#music_src").get(0).prop('src', stream_url);
+        $("#music_src").get(0).load();
         prev = holder;
     }
 }

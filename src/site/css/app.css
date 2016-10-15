@@ -107,10 +107,10 @@
 #song_tags {
     display: inline-block;
     float: right;
-    white-space: nowrap;
+    width: 50%;
 }
 
-#song_tags a {
+#song_tags > a {
     border-radius: 8px;
     margin: 0 3% 10px 0;
     background-color: #EF584D;
@@ -118,7 +118,12 @@
     padding: 5px 10px;
 }
 
-#song_tags a:last-child {
+#song_tags > a:hover {
+    cursor: pointer;
+    background-color: #D32F2F;
+}
+
+#song_tags > a:last-child {
     margin-right: 0;
 }
 
@@ -237,7 +242,7 @@
     display: inline-block;
     font-size: 18px;
     border-radius: 8px;
-    margin-right: 3%;
+    margin: 0 3% 10px 0;
     background-color: #D32F2F;
     padding: 5px 10px;
     font-weight: 200;
@@ -274,7 +279,7 @@
     line-height: 50px;
 }
 
-.genre_search span {
+.genre_search a {
     background-color: #EF584D;
     padding: 5px 15px;
     border-radius: 8px;

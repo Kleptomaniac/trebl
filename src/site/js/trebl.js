@@ -1,7 +1,7 @@
 $(document).ready(function () {
     appendHash("#song_tags a");
     appendHash(".nt_tags a");
-    appendHash(".genre_search span");
+    appendHash(".genre_search a");
     tracklistInit();
     if ($("#next_track").length == 0) {
         $("#del_nt").hide();
@@ -11,12 +11,12 @@ $(document).ready(function () {
 $(document).on('keyup', '#new_search_tag', function (ev) {
     if (ev.which == 13) {
         var val = $(this).val();
-        var element = "<span>" + val + "</span>";
+        var element = "<a>" + val + "</a>";
         var holder = $(this).detach();
         $(".genre_search").append(element);
         $(".genre_search").append(holder);
         $(this).val("");
-        appendHash(".genre_search span");
+        appendHash(".genre_search a");
         tagsUpdated();
     }
 });
@@ -35,8 +35,7 @@ $(function () {
 
     vol_slider.slider({
         range: "min",
-        min: 0,
-        value: 40,
+        value: 34,
         max: 10000,
 
         slide: function (event, ui) {
@@ -71,7 +70,7 @@ $(function () {
 
 $(document).ready(function () {
     $("#music_src").on('timeupdate', function () {
-        onTrackedVideoFrame(this.currentTime);
+        onTrackedVideoFrame(this.currentTime, this.duration);
     });
 });
 
@@ -84,20 +83,31 @@ $(document).on('click', '#popup_button', function () {
         }, 2500);
     } else {
         var plname = "";
-        if($("#playlistname").val() != "") {
+        if ($("#playlistname").val() != "") {
             plname = $("#playlistname").val();
         }
         var tags = $("#genressearch").val();
         tags = tags.replace(/, /g, ",");
         var search = tags.split(",");
-        for(var k = 0; k < search.length; k++) {
-            $(".genre_search").prepend("<span>" + search[k] + "</span>");
+        for (var k = 0; k < search.length; k++) {
+            $(".genre_search").prepend("<a>" + search[k] + "</a>");
         }
         console.log("Tags: " + tags + " | plname: " + plname);
-        appendHash(".genre_search span");
+        appendHash(".genre_search a");
         closePopup();
         updateTrackList(tags, plname, 5);
     }
+});
+
+$(document).on('click', '#song_tags a', function () {
+    var tag = $(this).text();
+    $(".genre_search a").each(function () {
+        if ($(this).text() != tag) {
+            var holder = $("#new_search_tag").detach();
+            $(".genre_search").append("<a>" + tag + "</a>");
+            $(".genre_search").append(holder);
+        }
+    });
 });
 
 $(document).on('click', '#close_popup', function () {
