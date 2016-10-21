@@ -21,10 +21,9 @@
     <div class="nav">
         <a class="logo"><span class="logo_t">t</span>rebl.</a>
         <ul>
-            <li><a>Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a id="generate">Generate</a></li>
-            <li><a>GitHub</a></li>
-            <li><a>About</a></li>
+            <li><a href="https://github.com/Kleptomaniac/trebl">GitHub</a></li>
         </ul>
     </div>
 </header>

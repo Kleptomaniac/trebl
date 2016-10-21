@@ -101,13 +101,17 @@ $(document).on('click', '#popup_button', function () {
 
 $(document).on('click', '#song_tags a', function () {
     var tag = $(this).text();
+    var exists = false;
     $(".genre_search a").each(function () {
-        if ($(this).text() != tag) {
-            var holder = $("#new_search_tag").detach();
-            $(".genre_search").append("<a>" + tag + "</a>");
-            $(".genre_search").append(holder);
+        if ($(this).text() == tag) {
+            exists = true;
         }
     });
+    if(!exists) {
+        var holder = $("#new_search_tag").detach();
+        $(".genre_search").append("<a>" + tag + "</a>");
+        $(".genre_search").append(holder);
+    }
 });
 
 $(document).on('click', '#close_popup', function () {
